@@ -27,6 +27,14 @@ Confirmar el plan contratado antes de empezar — determina qué secciones de es
 3. **Alta de infraestructura**:
    - Dominio a nombre del cliente (NIC Argentina para `.com.ar`, Hostinger para internacional)
    - Proyecto Vercel y Supabase: a nombre del cliente si NO tiene mantenimiento contratado, en cuenta de Lupa si SÍ lo tiene
+   - Clonar el template SIN borrar `.git`: renombrar `origin` a `template` (deshabilitarle el push), y agregar el repo nuevo del cliente como `origin`. Esto deja el historial conectado para poder traer fixes del template más adelante con `git fetch template` + `git cherry-pick`, en vez de copiar y pegar a mano
+     ```
+     git clone <url-template> nombre-cliente-web
+     cd nombre-cliente-web
+     git remote rename origin template
+     git remote set-url --push template no-push
+     git remote add origin <url-repo-nuevo-del-cliente>
+     ```
 4. **Diseño / boceto inicial** — validar la home con el cliente antes de construir el resto del sitio. No avanzar con todas las secciones sobre una dirección visual todavía no aprobada.
 5. **Desarrollo** — usar el template base, adaptar paleta y tipografía a la identidad propia del cliente (nunca genérica ni reciclada de otro cliente).
 6. **Contenido real + SEO técnico** — cargar el contenido que mandó el cliente (nunca lorem ipsum). Configurar en esta etapa, no después:

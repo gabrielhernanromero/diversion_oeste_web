@@ -47,7 +47,15 @@ Plugins oficiales de Anthropic, gratis, se instalan una sola vez por proyecto:
 - Ninguno de los dos es garantía absoluta — son una capa de asistencia, no reemplazan revisión humana en casos críticos.
 
 ## Evolución del template
-El template base sigue mejorando después de que un cliente ya fue entregado. Los repos de clientes divergen del template en el momento del clone — no hay sync automático. Fixes de seguridad o bugs importantes se backportean a mano solo a clientes con plan de mantenimiento activo; el resto queda como quedó entregado salvo pedido explícito (y facturable) del cliente.
+El template base sigue mejorando después de que un cliente ya fue entregado. Cada repo de cliente clonado de acá mantiene un remote `template` (sin permiso de push) apagado a este repo — no hay sync automático, pero sí una forma concreta de traer un fix puntual sin copiar y pegar a mano:
+
+```
+git fetch template
+git log HEAD..template/master --oneline   # ver qué hay nuevo en el template
+git cherry-pick <commit>                   # traer solo el fix puntual
+```
+
+Fixes de seguridad o bugs importantes se backportean así solo a clientes con plan de mantenimiento activo; el resto queda como quedó entregado salvo pedido explícito (y facturable) del cliente. Ver `.claude/skills/nuevo-cliente-lupa/SKILL.md` paso 3 para cómo se deja armado el remote al clonar.
 
 ## Titularidad — no negociable
 - Dominio: siempre a nombre del cliente, sin excepción
