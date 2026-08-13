@@ -14,11 +14,29 @@ Antes de usar esta skill por primera vez, correr `/run-skill-generator` en el te
 
 ## Planes de referencia
 
-- **Básico**: diseño a medida, responsive, dominio + hosting 1er año, botón de WhatsApp. Sin blog.
-- **Profesional**: todo lo de Básico + blog con panel propio de carga, SEO on-page inicial, GA4.
-- **Full**: todo lo de Profesional + panel de administración completo (no solo blog — también edición de secciones del sitio y gestión de mensajes de contacto), 3 piezas de contenido inicial, soporte prioritario primer mes.
+Posicionamiento: no se vende "una página web", se vende el sistema que convierte a una empresa invisible en Google en una que sus clientes potenciales encuentran, confían y contactan.
 
-Confirmar el plan contratado antes de empezar — determina qué secciones de este checklist aplican.
+### Básico — $220.000 · 7-10 días hábiles
+Incluye: diseño a medida 100% responsive (no plantilla), dominio propio a nombre del cliente (1er año incluido), hosting 1er año sobre Vercel, botón/formulario de contacto a WhatsApp, SSL desde el día uno, secciones estándar (Inicio, Servicios, Nosotros, Contacto).
+No incluye: blog, SEO técnico, Google Analytics, panel de administración (cambios de texto/imagen los hace Lupa, no autogestionable), redes sociales.
+Para quién: negocios sin presencia digital o con algo muy viejo. Punto de entrada, no la solución completa de captación por Google.
+
+### Profesional — $380.000 · 12-15 días hábiles
+Todo lo de Básico, más: blog con panel propio de carga (cliente o Priscila publican sin tocar código), SEO técnico on-page (metadatos por página, sitemap.xml, robots.txt, schema.org), GA4 con eventos de seguimiento (clicks en WhatsApp, envíos de formulario).
+No incluye: panel de administración del resto del sitio (solo blog, no home/textos/imágenes generales), redacción del contenido inicial del blog (la aporta el cliente o Priscila), redes sociales.
+Para quién: quiere que el sitio atraiga gente por Google activamente, no solo existir.
+
+### Full — $550.000 · 15-20 días hábiles
+Todo lo de Profesional, más: panel de administración completo (home, contacto, testimonios/casos destacados, imágenes generales, sin pedírselo a Lupa), bandeja de mensajes de contacto organizados en el panel (marcables como atendidos), 3 piezas de contenido inicial armadas por Priscila (texto + fotos que aporta el cliente: 1 testimonial con nombre/cargo/foto, 1 pieza "detrás de escena", 1 caso de éxito), soporte prioritario 1er mes.
+No incluye (aclarar siempre en la venta): producción/edición de video (las 3 piezas son texto + fotos, video se cotiza aparte), gestión activa de redes sociales, publicidad paga.
+Para quién: quiere autonomía total del sitio sin depender de Lupa día a día, y arrancar con contenido de peso desde la entrega.
+
+### Fuera de los 3 planes — capas separadas, precio propio
+- **Mantenimiento mensual**: $25.000/mes solo mantenimiento (actualizaciones, backups, soporte técnico continuo), o $60.000/mes con 2 entradas de blog redactadas y publicadas por Lupa.
+- **Plan Integral de Redes** (precio a definir): gestión activa de Instagram, Facebook, LinkedIn, edición de video y Google Business Profile — el combo que Priscila ya opera para Iron Tower como caso de referencia.
+- Publicidad paga (Google/Meta Ads) queda para más adelante, cuando haya casos propios de contenido/redes que la respalden.
+
+Confirmar el plan contratado antes de empezar — determina qué secciones de este checklist aplican. Fuente: `Planes_Lupa.pdf`.
 
 ## Flujo de trabajo (10 pasos)
 
