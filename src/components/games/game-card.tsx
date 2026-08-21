@@ -1,0 +1,53 @@
+"use client";
+
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { GameThumb } from "./game-thumb";
+import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
+import type { Game } from "@/lib/games";
+
+type GameCardProps = {
+  game: Game;
+  index: number;
+  variant?: "preview" | "catalog";
+};
+
+export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
+  return (
+    <Card className="relative h-full gap-0 overflow-hidden rounded-3xl py-0 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-foreground/10">
+      {/* Link "estirado": cubre toda la card por debajo del botón de WhatsApp (z-20) en vez de
+          envolverlo, para no anidar un <button> dentro de un <a> (HTML inválido y poco confiable
+          para bloquear la navegación al abrir el popup). */}
+      <Link href={`/juegos/${game.slug}`} className="absolute inset-0 z-10" aria-label={`Ver ${game.name}`} />
+      <GameThumb name={game.name} index={index} />
+      <div className="flex flex-1 flex-col gap-2 p-5">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="font-heading text-lg font-bold">{game.name}</h3>
+          {variant === "catalog" && (
+            <Badge variant="secondary" className="shrink-0 bg-secondary/10 text-[11px] tracking-wide text-secondary uppercase">
+              {game.category}
+            </Badge>
+          )}
+        </div>
+        <p className="flex-1 text-sm text-muted-foreground">{game.desc}</p>
+
+        {variant === "preview" ? (
+          <span className="mt-1 text-sm font-bold text-primary">Consultar disponibilidad →</span>
+        ) : (
+          <>
+            <span className="w-fit rounded-full bg-brand-yellow px-3 py-1 text-xs font-bold text-foreground">
+              Consultar precio
+            </span>
+            <WhatsAppCtaButton
+              defaultGames={[game.name]}
+              className="relative z-20 mt-1 w-full justify-center gap-1.5 rounded-xl px-4 py-3 text-sm"
+            >
+              Consultar disponibilidad
+            </WhatsAppCtaButton>
+          </>
+        )}
+      </div>
+    </Card>
+  );
+}

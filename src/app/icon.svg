@@ -1,0 +1,40 @@
+<svg width="460" height="460" viewBox="110 60 460 460" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Isotipo Diversión Oeste sin texto</title>
+<desc>Insignia circular con globos, confeti, un castillo inflable con dos torres y un nene saltando en la entrada, sin el nombre de marca.</desc>
+<circle cx="340" cy="290" r="230" fill="none" stroke="#F2662D" stroke-width="3" stroke-dasharray="6 6"></circle>
+<circle cx="340" cy="290" r="212" fill="none" stroke="#22B8B0" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"></circle>
+<ellipse cx="260" cy="130" rx="22" ry="28" fill="#22B8B0"></ellipse>
+<line x1="260" y1="158" x2="255" y2="212" stroke="#1B2A41" stroke-width="2"></line>
+<ellipse cx="310" cy="100" rx="20" ry="26" fill="#FFC93C"></ellipse>
+<line x1="310" y1="126" x2="305" y2="205" stroke="#1B2A41" stroke-width="2"></line>
+<ellipse cx="368" cy="95" rx="20" ry="26" fill="#F2662D"></ellipse>
+<line x1="368" y1="121" x2="362" y2="208" stroke="#1B2A41" stroke-width="2"></line>
+<ellipse cx="418" cy="118" rx="20" ry="26" fill="#22B8B0"></ellipse>
+<line x1="418" y1="144" x2="412" y2="212" stroke="#1B2A41" stroke-width="2"></line>
+<circle cx="232" cy="165" r="5" fill="#FFC93C"></circle>
+<circle cx="452" cy="155" r="5" fill="#F2662D"></circle>
+<circle cx="248" cy="195" r="4" fill="#22B8B0"></circle>
+<circle cx="432" cy="185" r="4" fill="#FFC93C"></circle>
+<rect x="296" y="66" width="9" height="9" fill="#F2662D" transform="rotate(45 300 70)"></rect>
+<rect x="378" y="58" width="9" height="9" fill="#22B8B0" transform="rotate(45 382 62)"></rect>
+<path d="M215 230 L235 175 L255 230 Z" fill="#22B8B0" stroke="#1B2A41" stroke-width="3" stroke-linejoin="round"></path>
+<rect x="210" y="225" width="60" height="165" rx="8" fill="#F2662D" stroke="#1B2A41" stroke-width="3"></rect>
+<rect x="228" y="255" width="24" height="34" rx="12" fill="#FFFFFF" stroke="#1B2A41" stroke-width="2"></rect>
+<line x1="235" y1="175" x2="235" y2="150" stroke="#1B2A41" stroke-width="2"></line>
+<path d="M235 150 L257 158 L235 166 Z" fill="#FFC93C"></path>
+<path d="M425 230 L445 175 L465 230 Z" fill="#22B8B0" stroke="#1B2A41" stroke-width="3" stroke-linejoin="round"></path>
+<rect x="410" y="225" width="60" height="165" rx="8" fill="#F2662D" stroke="#1B2A41" stroke-width="3"></rect>
+<rect x="428" y="255" width="24" height="34" rx="12" fill="#FFFFFF" stroke="#1B2A41" stroke-width="2"></rect>
+<line x1="445" y1="175" x2="445" y2="150" stroke="#1B2A41" stroke-width="2"></line>
+<path d="M445 150 L467 158 L445 166 Z" fill="#FFC93C"></path>
+<rect x="270" y="250" width="140" height="140" rx="10" fill="#F2662D" stroke="#1B2A41" stroke-width="3"></rect>
+<rect x="322" y="230" width="36" height="30" rx="14" fill="#F2662D" stroke="#1B2A41" stroke-width="3"></rect>
+<path d="M300 390 L300 320 A40 40 0 0 1 380 320 L380 390 Z" fill="#FFFFFF" stroke="#1B2A41" stroke-width="3"></path>
+<rect x="205" y="390" width="270" height="25" rx="6" fill="#22B8B0" stroke="#1B2A41" stroke-width="3"></rect>
+<circle cx="340" cy="340" r="9" fill="#F2662D"></circle>
+<path d="M333 350 L347 350 L344 378 L336 378 Z" fill="#F2662D"></path>
+<line x1="333" y1="352" x2="321" y2="333" stroke="#F2662D" stroke-width="6" stroke-linecap="round"></line>
+<line x1="347" y1="352" x2="359" y2="333" stroke="#F2662D" stroke-width="6" stroke-linecap="round"></line>
+<line x1="336" y1="378" x2="327" y2="396" stroke="#F2662D" stroke-width="6" stroke-linecap="round"></line>
+<line x1="344" y1="378" x2="353" y2="396" stroke="#F2662D" stroke-width="6" stroke-linecap="round"></line>
+</svg>
