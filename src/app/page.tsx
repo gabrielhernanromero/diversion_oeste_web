@@ -46,7 +46,7 @@ export default function Home() {
             Nuestros juegos
           </h2>
           <p className="text-[17px] text-muted-foreground">
-            Seis opciones para animar cualquier evento, con o sin lluvia
+            Seis opciones para animar cualquier evento, con o sin lluvia. Todos los precios son a consultar.
           </p>
         </div>
         <GamesGrid games={games} variant="preview" />

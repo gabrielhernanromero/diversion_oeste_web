@@ -29,7 +29,15 @@ export function Footer() {
           Alquiler de juegos para fiestas y eventos en zona oeste del GBA.
         </p>
         <div className="h-px bg-background/10" />
-        <p className="text-xs text-background/40">© 2026 Diversión Oeste. Todos los derechos reservados.</p>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <p className="text-xs text-background/40">© 2026 Diversión Oeste. Todos los derechos reservados.</p>
+          <Link href="/politica-de-privacidad" className="text-xs text-background/40 hover:text-background/70">
+            Política de privacidad
+          </Link>
+          <Link href="/terminos-y-condiciones" className="text-xs text-background/40 hover:text-background/70">
+            Términos y condiciones
+          </Link>
+        </div>
       </div>
     </footer>
   );

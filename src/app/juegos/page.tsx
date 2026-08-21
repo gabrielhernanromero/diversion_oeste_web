@@ -12,7 +12,10 @@ export const metadata: Metadata = {
 export default function CatalogoPage() {
   return (
     <main className="flex-1">
-      <PageHeroBand title="Nuestros juegos" subtitle="Seis opciones para animar cualquier evento, con o sin lluvia." />
+      <PageHeroBand
+        title="Nuestros juegos"
+        subtitle="Seis opciones para animar cualquier evento, con o sin lluvia. Todos los precios son a consultar."
+      />
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-12">
         <GamesCatalog />
       </section>

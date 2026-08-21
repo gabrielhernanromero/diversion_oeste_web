@@ -32,7 +32,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Qué necesito para instalar el Castillo Inflable?",
     answer:
-      "Un espacio libre con al menos 1,5 metros adicionales al tamaño del castillo, tanto en ancho como en largo, y un toma corriente cercano al área de armado (proveemos alargue). Si el espacio es cerrado, también hay que medir la altura disponible.",
+      "El castillo mide 3 x 3 metros, así que necesitás un espacio libre de al menos 6 x 6 metros — sumando 1,5 metros adicionales de cada lado en ancho y largo — y un toma corriente cercano al área de armado (proveemos alargue). Si el espacio es cerrado, también hay que medir la altura disponible.",
   },
   {
     question: "¿Qué hacer si hay tormenta durante el evento?",

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Ruler } from "lucide-react";
 import { games, getGameBySlug } from "@/lib/games";
 import { GameThumb } from "@/components/games/game-thumb";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
@@ -21,7 +22,7 @@ export async function generateMetadata({
   if (!game) return {};
   return {
     title: game.name,
-    description: `${game.desc} Alquiler de ${game.name} para fiestas y eventos en zona oeste del GBA — consultá disponibilidad y precio por WhatsApp.`,
+    description: `${game.desc} Medidas: ${game.measurements}. Alquiler de ${game.name} para fiestas y eventos en zona oeste del GBA — consultá disponibilidad y precio por WhatsApp.`,
   };
 }
 
@@ -52,7 +53,11 @@ export default async function GameDetailPage({
               {game.category}
             </span>
             <h1 className="mb-3.5 font-heading text-3xl font-extrabold sm:text-4xl lg:text-[42px]">{game.name}</h1>
-            <p className="mb-6 max-w-xl text-[17px] leading-relaxed text-muted-foreground">{game.desc}</p>
+            <p className="mb-4 max-w-xl text-[17px] leading-relaxed text-muted-foreground">{game.desc}</p>
+            <p className="mb-6 flex items-center gap-1.5 text-sm font-medium text-foreground/70">
+              <Ruler className="size-4" />
+              Medidas: {game.measurements}
+            </p>
             <div className="flex flex-wrap items-center gap-4">
               <span className="rounded-full bg-brand-yellow px-4.5 py-2 text-sm font-bold text-foreground">
                 Consultar precio

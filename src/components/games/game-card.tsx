@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Sun } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GameThumb } from "./game-thumb";
@@ -22,11 +23,14 @@ export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
       <Link href={`/juegos/${game.slug}`} className="absolute inset-0 z-10" aria-label={`Ver ${game.name}`} />
       <GameThumb name={game.name} index={index} />
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex min-h-14 items-center justify-between gap-2">
           <h3 className="font-heading text-lg font-bold">{game.name}</h3>
-          {variant === "catalog" && (
-            <Badge variant="secondary" className="shrink-0 bg-secondary/10 text-[11px] tracking-wide text-secondary uppercase">
-              {game.category}
+          {/* La categoría solo se marca para "Exterior" — es la excepción (1 de 6 juegos), así
+              que resaltarla dice más que repetir "Interior" en el resto de las cards. */}
+          {variant === "catalog" && game.category === "Exterior" && (
+            <Badge className="shrink-0 gap-1 bg-brand-yellow/20 text-[11px] tracking-wide text-[#8a6600] uppercase">
+              <Sun className="size-3" />
+              Exterior
             </Badge>
           )}
         </div>
@@ -35,17 +39,12 @@ export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
         {variant === "preview" ? (
           <span className="mt-1 text-sm font-bold text-primary">Consultar disponibilidad →</span>
         ) : (
-          <>
-            <span className="w-fit rounded-full bg-brand-yellow px-3 py-1 text-xs font-bold text-foreground">
-              Consultar precio
-            </span>
-            <WhatsAppCtaButton
-              defaultGames={[game.name]}
-              className="relative z-20 mt-1 w-full justify-center gap-1.5 rounded-xl px-4 py-3 text-sm"
-            >
-              Consultar disponibilidad
-            </WhatsAppCtaButton>
-          </>
+          <WhatsAppCtaButton
+            defaultGames={[game.name]}
+            className="relative z-20 mt-1 w-full justify-center gap-1.5 rounded-xl px-4 py-3 text-sm"
+          >
+            Consultar disponibilidad
+          </WhatsAppCtaButton>
         )}
       </div>
     </Card>
