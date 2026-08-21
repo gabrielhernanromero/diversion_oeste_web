@@ -36,7 +36,7 @@ export default function TerminosYCondicionesPage() {
             <p>
               La seña, duración del alquiler, política ante lluvia y demás condiciones comerciales del servicio están
               detalladas en nuestras{" "}
-              <a href="/preguntas-frecuentes" className="font-bold text-primary hover:underline">
+              <a href="/preguntas-frecuentes" className="font-bold text-primary-deep hover:underline">
                 preguntas frecuentes
               </a>
               , y se confirman puntualmente al coordinar cada reserva por WhatsApp.

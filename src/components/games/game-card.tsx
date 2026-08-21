@@ -37,7 +37,7 @@ export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
         <p className="flex-1 text-sm text-muted-foreground">{game.desc}</p>
 
         {variant === "preview" ? (
-          <span className="mt-1 text-sm font-bold text-primary">Consultar disponibilidad →</span>
+          <span className="mt-1 text-sm font-bold text-primary-deep">Consultar disponibilidad →</span>
         ) : (
           <WhatsAppCtaButton
             defaultGames={[game.name]}

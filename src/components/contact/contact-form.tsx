@@ -45,7 +45,7 @@ export function ContactForm() {
             href={state.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-primary hover:underline"
+            className="font-bold text-primary-deep hover:underline"
           >
             escribinos por acá
           </a>

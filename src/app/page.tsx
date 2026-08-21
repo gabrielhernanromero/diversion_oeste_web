@@ -39,7 +39,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-12">
         <div className="mb-10 text-center sm:mb-14">
-          <span className="mb-3.5 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wide text-primary uppercase">
+          <span className="mb-3.5 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wide text-primary-deep uppercase">
             Catálogo
           </span>
           <h2 className="mb-2.5 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[42px]">

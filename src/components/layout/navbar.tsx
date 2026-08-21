@@ -66,7 +66,7 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "text-sm font-semibold transition-colors",
-                  isActive(link.href) ? "text-primary" : "text-foreground hover:text-primary"
+                  isActive(link.href) ? "text-primary-deep" : "text-foreground hover:text-primary-deep"
                 )}
               >
                 {link.label}

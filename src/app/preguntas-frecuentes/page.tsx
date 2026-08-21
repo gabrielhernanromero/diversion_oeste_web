@@ -27,7 +27,7 @@ export default function PreguntasFrecuentesPage() {
       <PageHeroBand title="Preguntas frecuentes" subtitle="Todo lo que necesitás saber antes de reservar tu juego." />
       <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
         <div className="mb-10 text-center sm:mb-12">
-          <span className="mb-3.5 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wide text-primary uppercase">
+          <span className="mb-3.5 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wide text-primary-deep uppercase">
             Ayuda
           </span>
           <h2 className="font-heading text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[42px]">

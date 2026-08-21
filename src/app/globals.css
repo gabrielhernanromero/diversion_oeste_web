@@ -19,6 +19,11 @@
   --color-sidebar: var(--sidebar);
   --color-brand-yellow: #ffc93c;
   --color-brand-cream: var(--muted);
+  /* Versiones oscurecidas de primary/secondary para texto legible sobre fondos claros
+     (badges/eyebrows con tinte del mismo color, o blanco) — el naranja y turquesa de marca
+     no dan 4.5:1 de contraste en texto normal contra blanco ni contra su propio tinte al 10%. */
+  --color-primary-deep: #c2410c;
+  --color-secondary-deep: #0f766e;
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -57,9 +62,9 @@
   --popover: #ffffff;
   --popover-foreground: #1b2a41;
   --primary: #f2662d;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #1b2a41;
   --secondary: #22b8b0;
-  --secondary-foreground: #ffffff;
+  --secondary-foreground: #1b2a41;
   --muted: #f7f3ee;
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);

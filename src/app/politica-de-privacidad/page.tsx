@@ -19,7 +19,7 @@ export default function PoliticaDePrivacidadPage() {
               Este sitio (diversionoeste.com.ar) es operado por Diversión Oeste, emprendimiento de alquiler de juegos
               para fiestas y eventos en zona oeste del Gran Buenos Aires. Para cualquier consulta sobre tus datos,
               podés escribirnos por WhatsApp o a través del{" "}
-              <a href="/contacto" className="font-bold text-primary hover:underline">
+              <a href="/contacto" className="font-bold text-primary-deep hover:underline">
                 formulario de contacto
               </a>
               .

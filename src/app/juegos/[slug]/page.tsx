@@ -40,7 +40,7 @@ export default async function GameDetailPage({
       <div className="mx-auto max-w-3xl">
         <Link
           href="/juegos"
-          className="mb-7 inline-flex items-center gap-1.5 text-sm font-bold text-foreground hover:text-primary"
+          className="mb-7 inline-flex items-center gap-1.5 text-sm font-bold text-foreground hover:text-primary-deep"
         >
           ← Volver al catálogo
         </Link>
@@ -49,7 +49,7 @@ export default async function GameDetailPage({
             <GameThumb name={game.name} index={games.findIndex((g) => g.slug === game.slug)} aspect="video" />
           </div>
           <div>
-            <span className="mb-3 inline-block rounded-full bg-secondary/10 px-3 py-1.5 text-xs font-bold tracking-wide text-secondary uppercase">
+            <span className="mb-3 inline-block rounded-full bg-secondary/10 px-3 py-1.5 text-xs font-bold tracking-wide text-secondary-deep uppercase">
               {game.category}
             </span>
             <h1 className="mb-3.5 font-heading text-3xl font-extrabold sm:text-4xl lg:text-[42px]">{game.name}</h1>

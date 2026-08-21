@@ -24,7 +24,7 @@ export function CoverageSection({ layout = "wide", className }: CoverageSectionP
         </p>
         <WhatsAppFormDialog
           trigger={
-            <button type="button" className="font-bold text-primary hover:underline">
+            <button type="button" className="font-bold text-primary-deep hover:underline">
               Consultá si llegamos a tu zona →
             </button>
           }

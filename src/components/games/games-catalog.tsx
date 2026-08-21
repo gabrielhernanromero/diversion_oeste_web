@@ -17,13 +17,15 @@ export function GamesCatalog() {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-wrap justify-center gap-2.5">
+      <h2 className="sr-only">Catálogo completo</h2>
+      <div role="group" aria-label="Filtrar juegos por categoría" className="flex flex-wrap justify-center gap-2.5">
         {FILTERS.map((filter) => {
           const active = category === filter.key;
           return (
             <button
               key={filter.key}
               type="button"
+              aria-pressed={active}
               onClick={() => setCategory(filter.key)}
               className={cn(
                 "rounded-full border-2 px-5 py-2.5 text-sm font-bold transition-colors",
