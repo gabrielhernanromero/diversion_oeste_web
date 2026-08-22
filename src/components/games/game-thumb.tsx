@@ -26,11 +26,12 @@ export function GameThumb({
   priority,
 }: GameThumbProps) {
   if (image) {
-    // Fondo crema + object-contain: las fotos de producto vienen con fondo blanco y
-    // relaciones de aspecto muy distintas entre sí — esto evita que se recorten mal
-    // y que el blanco de la foto se pierda contra el blanco de la card.
+    // Fondo blanco (igual que la card) + object-contain: las fotos de producto ya
+    // vienen con fondo blanco, así que el recuadro se disimula por completo en vez de
+    // notarse contra un color distinto. object-contain evita recortar mal el producto,
+    // ya que las 6 fotos tienen relaciones de aspecto muy distintas entre sí.
     return (
-      <div className={cn("relative aspect-[4/3] bg-muted p-6", className)}>
+      <div className={cn("relative aspect-[4/3] bg-card p-6", className)}>
         <Image
           src={image}
           alt={name}
