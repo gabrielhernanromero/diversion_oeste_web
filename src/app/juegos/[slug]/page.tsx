@@ -46,7 +46,13 @@ export default async function GameDetailPage({
         </Link>
         <div className="grid gap-7">
           <div className="mx-auto w-full max-w-lg overflow-hidden rounded-3xl">
-            <GameThumb name={game.name} index={games.findIndex((g) => g.slug === game.slug)} aspect="video" />
+            <GameThumb
+              name={game.name}
+              image={game.image}
+              index={games.findIndex((g) => g.slug === game.slug)}
+              sizes="(min-width: 640px) 512px, 90vw"
+              priority
+            />
           </div>
           <div>
             <span className="mb-3 inline-block rounded-full bg-secondary/10 px-3 py-1.5 text-xs font-bold tracking-wide text-secondary-deep uppercase">

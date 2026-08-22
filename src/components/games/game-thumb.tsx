@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const GRADIENTS = [
@@ -9,18 +10,44 @@ const GRADIENTS = [
 
 type GameThumbProps = {
   name: string;
+  image?: string;
   index?: number;
-  aspect?: "square" | "video";
   className?: string;
+  sizes?: string;
+  priority?: boolean;
 };
 
-export function GameThumb({ name, index = 0, aspect = "square", className }: GameThumbProps) {
+export function GameThumb({
+  name,
+  image,
+  index = 0,
+  className,
+  sizes = "(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw",
+  priority,
+}: GameThumbProps) {
+  if (image) {
+    // Fondo crema + object-contain: las fotos de producto vienen con fondo blanco y
+    // relaciones de aspecto muy distintas entre sí — esto evita que se recorten mal
+    // y que el blanco de la foto se pierda contra el blanco de la card.
+    return (
+      <div className={cn("relative aspect-[4/3] bg-muted p-6", className)}>
+        <Image
+          src={image}
+          alt={name}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-contain drop-shadow-[0_10px_18px_rgba(27,42,65,0.15)]"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
-        "flex items-center justify-center bg-gradient-to-br p-6 text-center",
+        "flex aspect-[4/3] items-center justify-center bg-gradient-to-br p-6 text-center",
         GRADIENTS[index % GRADIENTS.length],
-        aspect === "video" ? "aspect-video" : "aspect-[4/3]",
         className
       )}
     >

@@ -21,7 +21,7 @@ export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
           envolverlo, para no anidar un <button> dentro de un <a> (HTML inválido y poco confiable
           para bloquear la navegación al abrir el popup). */}
       <Link href={`/juegos/${game.slug}`} className="absolute inset-0 z-10" aria-label={`Ver ${game.name}`} />
-      <GameThumb name={game.name} index={index} />
+      <GameThumb name={game.name} image={game.image} index={index} />
       <div className="flex flex-1 flex-col gap-2 p-5">
         <div className="flex min-h-14 items-center justify-between gap-2">
           <h3 className="font-heading text-lg font-bold">{game.name}</h3>
