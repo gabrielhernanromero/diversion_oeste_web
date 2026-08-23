@@ -66,7 +66,8 @@ export default function Home() {
             Nuestros juegos
           </h2>
           <p className="text-[17px] text-muted-foreground">
-            Seis opciones para animar cualquier evento, con o sin lluvia. Todos los precios son a consultar.
+            Seis opciones para animar cualquier evento, con o sin lluvia. Precios de referencia por 6 horas de
+            alquiler.
           </p>
         </div>
         <GamesGrid games={games} variant="preview" />

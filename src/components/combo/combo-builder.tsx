@@ -58,7 +58,7 @@ export function ComboBuilder({ games }: ComboBuilderProps) {
                 )}
                 <span className="font-heading text-base font-bold">{game.name}</span>
                 <span className={cn("text-sm font-semibold", active ? "text-secondary-foreground" : "text-muted-foreground")}>
-                  ${game.precio}
+                  ${game.precio} <span className="text-xs font-normal opacity-75">/ 6 hs</span>
                 </span>
               </button>
             );
@@ -83,7 +83,9 @@ export function ComboBuilder({ games }: ComboBuilderProps) {
             </div>
             <div>
               {descuento > 0 && <p className="text-sm text-background/50 line-through">${precioLista}</p>}
-              <p className="font-heading text-4xl font-extrabold text-primary">${precioFinal}</p>
+              <p className="font-heading text-4xl font-extrabold text-primary">
+                ${precioFinal} <span className="text-base font-semibold text-background/60">/ 6 hs</span>
+              </p>
             </div>
             <WhatsAppCtaButton
               variant="default"

@@ -25,9 +25,10 @@ export default function TerminosYCondicionesPage() {
           <section>
             <h2 className="mb-2 font-heading text-lg font-bold text-foreground">Precios y disponibilidad</h2>
             <p>
-              Los precios son siempre “a consultar” y pueden variar según fecha, zona y duración del evento. La
-              disponibilidad de cada juego se confirma recién al coordinar por WhatsApp — que un juego aparezca en el
-              catálogo no garantiza que esté libre para una fecha puntual.
+              Los precios publicados son de referencia, corresponden a un alquiler estándar de 6 horas y pueden
+              variar según zona, fecha o si se extiende el horario del evento — la extensión de horario se coordina
+              y cotiza por WhatsApp. La disponibilidad de cada juego se confirma recién al coordinar por WhatsApp —
+              que un juego aparezca en el catálogo no garantiza que esté libre para una fecha puntual.
             </p>
           </section>
 

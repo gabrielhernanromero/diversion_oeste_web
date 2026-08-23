@@ -34,6 +34,9 @@ export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
             </Badge>
           )}
         </div>
+        <p className="font-heading text-xl font-extrabold text-primary-deep">
+          ${game.precio} <span className="text-xs font-semibold text-muted-foreground">/ 6 hs</span>
+        </p>
         <p className="flex-1 text-sm text-muted-foreground">{game.desc}</p>
 
         {variant === "preview" ? (

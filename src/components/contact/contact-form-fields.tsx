@@ -73,6 +73,7 @@ export function ContactFormFields({ defaultGames = [], defaultMessage, idPrefix 
             <div className="mt-1 flex items-baseline gap-2">
               {descuento > 0 && <span className="text-sm text-background/50 line-through">${precioLista}</span>}
               <span className="font-heading text-2xl font-extrabold text-primary">${precioFinal}</span>
+              <span className="text-xs font-medium text-background/60">/ 6 hs</span>
             </div>
           </div>
         )}

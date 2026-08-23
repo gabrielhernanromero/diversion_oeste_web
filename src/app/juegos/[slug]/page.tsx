@@ -66,10 +66,14 @@ export default async function GameDetailPage({
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <span className="rounded-full bg-brand-yellow px-4.5 py-2 text-sm font-bold text-foreground">
-                Consultar precio
+                ${game.precio} / 6 hs
               </span>
               <WhatsAppCtaButton defaultGames={[game.name]}>Consultar disponibilidad</WhatsAppCtaButton>
             </div>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Precio de referencia por 6 horas de alquiler. ¿Necesitás extender el horario? Lo coordinamos por
+              WhatsApp.
+            </p>
           </div>
         </div>
       </div>

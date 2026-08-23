@@ -14,7 +14,7 @@ export default function CatalogoPage() {
     <main className="flex-1">
       <PageHeroBand
         title="Nuestros juegos"
-        subtitle="Seis opciones para animar cualquier evento, con o sin lluvia. Todos los precios son a consultar."
+        subtitle="Seis opciones para animar cualquier evento, con o sin lluvia. Precios de referencia por 6 horas de alquiler."
       />
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-12">
         <GamesCatalog />
