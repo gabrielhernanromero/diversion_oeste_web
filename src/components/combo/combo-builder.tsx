@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Game } from "@/lib/games";
@@ -45,21 +46,30 @@ export function ComboBuilder({ games }: ComboBuilderProps) {
                 aria-pressed={active}
                 onClick={() => toggle(game.slug)}
                 className={cn(
-                  "relative flex flex-col items-start gap-1 rounded-xl border-2 px-4 py-4 text-left transition-colors duration-200",
-                  active
-                    ? "border-secondary bg-secondary text-secondary-foreground"
-                    : "border-transparent bg-muted text-foreground hover:border-secondary/30"
+                  "relative flex flex-col overflow-hidden rounded-xl border-2 text-left transition-colors duration-200",
+                  active ? "border-secondary" : "border-transparent hover:border-secondary/30"
                 )}
               >
                 {active && (
-                  <span className="absolute top-3 right-3 flex size-5 items-center justify-center rounded-full bg-background text-secondary">
+                  <span className="absolute top-2 right-2 z-10 flex size-5 items-center justify-center rounded-full bg-background text-secondary">
                     <Check className="size-3.5" strokeWidth={3} />
                   </span>
                 )}
-                <span className="font-heading text-base font-bold">{game.name}</span>
-                <span className={cn("text-sm font-semibold", active ? "text-secondary-foreground" : "text-muted-foreground")}>
-                  ${game.precio} <span className="text-xs font-normal opacity-75">/ 6 hs</span>
-                </span>
+                <div className="relative aspect-[4/3] w-full bg-background">
+                  <Image
+                    src={game.image}
+                    alt={game.name}
+                    fill
+                    sizes="(min-width: 1024px) 240px, 45vw"
+                    className="object-contain p-3"
+                  />
+                </div>
+                <div className={cn("flex flex-col gap-0.5 px-3.5 py-3", active ? "bg-secondary text-secondary-foreground" : "bg-muted text-foreground")}>
+                  <span className="font-heading text-base font-bold">{game.name}</span>
+                  <span className={cn("text-sm font-semibold", active ? "text-secondary-foreground" : "text-muted-foreground")}>
+                    ${game.precio} <span className="text-xs font-normal opacity-75">/ 6 hs</span>
+                  </span>
+                </div>
               </button>
             );
           })}
