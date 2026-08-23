@@ -11,8 +11,9 @@ export default function Home() {
   return (
     <main className="flex-1">
       <section className="relative flex min-h-[min(88vh,760px)] items-center overflow-hidden pt-28 sm:pt-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-yellow via-primary to-foreground" />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
+        <Image src="/hero-fiesta.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-yellow/75 via-primary/75 to-foreground/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/15 to-transparent" />
         <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 text-center sm:px-6">
           <span className="mb-4.5 inline-block rounded-full bg-brand-yellow px-4 py-1.5 text-sm font-bold text-foreground">
             Zona Oeste · GBA
@@ -35,14 +36,6 @@ export default function Home() {
               Ver juegos
             </Link>
           </div>
-          <Image
-            src="/hero-castillo.png"
-            alt=""
-            width={1400}
-            height={1098}
-            priority
-            className="mx-auto mt-6 w-full max-w-[300px] drop-shadow-[0_25px_35px_rgba(0,0,0,0.35)] sm:max-w-[380px] lg:mt-2 lg:max-w-[440px]"
-          />
         </div>
       </section>
 
