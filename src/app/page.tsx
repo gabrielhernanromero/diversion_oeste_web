@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { games } from "@/lib/games";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
 import { WhatsAppCtaBand } from "@/components/cta/whatsapp-cta-band";
@@ -34,6 +35,14 @@ export default function Home() {
               Ver juegos
             </Link>
           </div>
+          <Image
+            src="/hero-castillo.png"
+            alt=""
+            width={1400}
+            height={1098}
+            priority
+            className="mx-auto mt-6 w-full max-w-[300px] drop-shadow-[0_25px_35px_rgba(0,0,0,0.35)] sm:max-w-[380px] lg:mt-2 lg:max-w-[440px]"
+          />
         </div>
       </section>
 
