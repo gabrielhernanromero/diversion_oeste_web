@@ -11,9 +11,10 @@ const initialState: ContactFormState = { success: false };
 type WhatsAppFormDialogProps = {
   trigger: ReactNode;
   defaultGames?: string[];
+  defaultMessage?: string;
 };
 
-export function WhatsAppFormDialog({ trigger, defaultGames }: WhatsAppFormDialogProps) {
+export function WhatsAppFormDialog({ trigger, defaultGames, defaultMessage }: WhatsAppFormDialogProps) {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<ContactFormState>(initialState);
   const [pending, setPending] = useState(false);
@@ -59,7 +60,7 @@ export function WhatsAppFormDialog({ trigger, defaultGames }: WhatsAppFormDialog
           Completá tus datos y te llevamos a WhatsApp con la consulta ya armada.
         </DialogDescription>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 pt-1">
-          <ContactFormFields defaultGames={defaultGames} idPrefix="modal" />
+          <ContactFormFields defaultGames={defaultGames} defaultMessage={defaultMessage} idPrefix="modal" />
           {state.error && <p className="text-sm text-destructive">{state.error}</p>}
           <Button type="submit" disabled={pending} className="h-auto rounded-2xl py-3.5 text-base font-bold">
             {pending ? "Enviando…" : "Continuar a WhatsApp"}

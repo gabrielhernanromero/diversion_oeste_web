@@ -12,12 +12,20 @@ type WhatsAppCtaButtonProps = {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   className?: string;
   defaultGames?: string[];
+  defaultMessage?: string;
 };
 
-export function WhatsAppCtaButton({ children, variant = "secondary", className, defaultGames }: WhatsAppCtaButtonProps) {
+export function WhatsAppCtaButton({
+  children,
+  variant = "secondary",
+  className,
+  defaultGames,
+  defaultMessage,
+}: WhatsAppCtaButtonProps) {
   return (
     <WhatsAppFormDialog
       defaultGames={defaultGames}
+      defaultMessage={defaultMessage}
       trigger={
         <Button
           variant={variant}

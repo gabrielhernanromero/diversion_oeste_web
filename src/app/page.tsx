@@ -37,6 +37,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pt-12 sm:px-6 sm:pt-16 lg:px-12">
+        <Link
+          href="/armar-combo"
+          className="group flex flex-col items-center justify-between gap-4 rounded-3xl bg-foreground px-6 py-6 text-center transition-transform hover:scale-[1.01] active:scale-[0.99] sm:flex-row sm:text-left"
+        >
+          <div>
+            <span className="mb-1.5 inline-block rounded-full bg-brand-yellow px-3 py-1 text-xs font-bold tracking-wide text-foreground uppercase">
+              Nuevo
+            </span>
+            <h2 className="font-heading text-xl font-extrabold text-background sm:text-2xl">
+              Armá tu combo y ahorrá hasta 30%
+            </h2>
+            <p className="text-sm text-background/70">Elegí los juegos que quieras y mirá el precio final al instante.</p>
+          </div>
+          <span className="shrink-0 rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform group-hover:scale-105">
+            Armar combo →
+          </span>
+        </Link>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-12">
         <div className="mb-10 text-center sm:mb-14">
           <span className="mb-3.5 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wide text-primary-deep uppercase">

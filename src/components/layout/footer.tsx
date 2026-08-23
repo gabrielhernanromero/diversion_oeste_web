@@ -4,6 +4,7 @@ import Image from "next/image";
 const FOOTER_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/juegos", label: "Catálogo" },
+  { href: "/armar-combo", label: "Armá tu combo" },
   { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
   { href: "/contacto", label: "Contacto" },
 ];

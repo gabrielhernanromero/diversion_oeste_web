@@ -5,10 +5,11 @@ import { games } from "@/lib/games";
 
 type ContactFormFieldsProps = {
   defaultGames?: string[];
+  defaultMessage?: string;
   idPrefix?: string;
 };
 
-export function ContactFormFields({ defaultGames = [], idPrefix }: ContactFormFieldsProps) {
+export function ContactFormFields({ defaultGames = [], defaultMessage, idPrefix }: ContactFormFieldsProps) {
   const fieldId = (name: string) => (idPrefix ? `${idPrefix}-${name}` : name);
 
   return (
@@ -48,7 +49,13 @@ export function ContactFormFields({ defaultGames = [], idPrefix }: ContactFormFi
       </div>
       <div className="grid gap-2">
         <Label htmlFor={fieldId("message")}>Mensaje adicional</Label>
-        <Textarea id={fieldId("message")} name="message" rows={4} placeholder="Contanos más sobre tu evento (opcional)" />
+        <Textarea
+          id={fieldId("message")}
+          name="message"
+          rows={4}
+          placeholder="Contanos más sobre tu evento (opcional)"
+          defaultValue={defaultMessage}
+        />
       </div>
       {/* Honeypot anti-spam: oculto por CSS, no por type=hidden, para que los bots simples lo completen igual */}
       <div className="hidden" aria-hidden="true">
