@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { InstagramIcon } from "./instagram-icon";
 
 const FOOTER_LINKS = [
   { href: "/", label: "Inicio" },
@@ -13,11 +14,22 @@ export function Footer() {
   return (
     <footer className="bg-foreground px-4 pt-13 pb-8 text-background sm:px-6 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-6">
-        <div className="flex items-center gap-2.5">
-          <Image src="/logo-icon.svg" alt="Diversión Oeste" width={36} height={36} className="size-9" />
-          <span className="font-heading text-lg font-bold">
-            <span className="text-secondary">Diversión</span> <span className="text-primary">Oeste</span>
-          </span>
+        <div className="flex items-center justify-between gap-2.5">
+          <div className="flex items-center gap-2.5">
+            <Image src="/logo-icon.svg" alt="Diversión Oeste" width={36} height={36} className="size-9" />
+            <span className="font-heading text-lg font-bold">
+              <span className="text-secondary">Diversión</span> <span className="text-primary">Oeste</span>
+            </span>
+          </div>
+          <a
+            href="https://www.instagram.com/diversionoeste"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Diversión Oeste en Instagram"
+            className="flex size-9 items-center justify-center rounded-full bg-background/10 text-background transition-colors hover:bg-background/20"
+          >
+            <InstagramIcon className="size-4.5" />
+          </a>
         </div>
         <div className="flex flex-wrap gap-5">
           {FOOTER_LINKS.map((link) => (
