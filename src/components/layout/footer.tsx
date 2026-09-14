@@ -22,7 +22,7 @@ export function Footer() {
             </span>
           </div>
           <a
-            href="https://www.instagram.com/diversionoeste"
+            href="https://www.instagram.com/diversionoesteoficial"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Diversión Oeste en Instagram"
