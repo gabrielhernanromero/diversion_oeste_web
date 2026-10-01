@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Política de privacidad",
   description: "Cómo Diversión Oeste recolecta, usa y protege tus datos al usar este sitio.",
+  alternates: { canonical: "/politica-de-privacidad" },
 };
 
 export default function PoliticaDePrivacidadPage() {

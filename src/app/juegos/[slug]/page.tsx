@@ -5,6 +5,8 @@ import { Ruler } from "lucide-react";
 import { games, getGameBySlug } from "@/lib/games";
 import { GameThumb } from "@/components/games/game-thumb";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
+import { JsonLd } from "@/components/seo/json-ld";
+import { gameJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -20,9 +22,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const game = getGameBySlug(slug);
   if (!game) return {};
+  const title = `Alquiler de ${game.name} en Zona Oeste`;
+  const description = `Alquiler de ${game.name} para cumpleaños, fiestas y eventos en Zona Oeste del GBA. ${game.desc} Medidas: ${game.measurements}. Entrega y armado incluidos.`;
+  const path = `/juegos/${game.slug}`;
   return {
-    title: game.name,
-    description: `${game.desc} Medidas: ${game.measurements}. Alquiler de ${game.name} para fiestas y eventos en zona oeste del GBA — consultá disponibilidad y precio por WhatsApp.`,
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: { title, description, url: path, images: [{ url: game.image, alt: game.name }] },
   };
 }
 
@@ -37,6 +44,7 @@ export default async function GameDetailPage({
 
   return (
     <main className="flex-1 px-4 pt-28 pb-20 sm:px-6 sm:pt-32">
+      <JsonLd data={gameJsonLd(game)} />
       <div className="mx-auto max-w-3xl">
         <Link
           href="/juegos"
@@ -58,7 +66,10 @@ export default async function GameDetailPage({
             <span className="mb-3 inline-block rounded-full bg-secondary/10 px-3 py-1.5 text-xs font-bold tracking-wide text-secondary-deep uppercase">
               {game.category}
             </span>
-            <h1 className="mb-3.5 font-heading text-3xl font-extrabold sm:text-4xl lg:text-[42px]">{game.name}</h1>
+            <h1 className="mb-3.5 font-heading text-3xl font-extrabold sm:text-4xl lg:text-[42px]">
+              {game.name}
+              <span className="sr-only"> — alquiler en Zona Oeste</span>
+            </h1>
             <p className="mb-4 max-w-xl text-[17px] leading-relaxed text-muted-foreground">{game.desc}</p>
             <p className="mb-6 flex items-center gap-1.5 text-sm font-medium text-foreground/70">
               <Ruler className="size-4" />

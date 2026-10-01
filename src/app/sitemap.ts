@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { games } from "@/lib/games";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { SITE_URL } from "@/lib/seo";
 
 const STATIC_ROUTES = ["", "/juegos", "/armar-combo", "/preguntas-frecuentes", "/contacto"];
 
@@ -17,7 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}/juegos/${game.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: 0.6,
+    priority: 0.7,
+    images: [`${SITE_URL}${game.image}`],
   }));
 
   return [...staticEntries, ...gameEntries];

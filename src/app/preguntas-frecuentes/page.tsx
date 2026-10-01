@@ -3,27 +3,20 @@ import { PageHeroBand } from "@/components/hero/page-hero-band";
 import { FaqAccordion } from "@/components/faq/faq-accordion";
 import { WhatsAppCtaBand } from "@/components/cta/whatsapp-cta-band";
 import { faqs } from "@/lib/faqs";
+import { JsonLd } from "@/components/seo/json-ld";
+import { faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Preguntas frecuentes",
   description:
     "Todo lo que necesitás saber antes de reservar un juego: reservas, seña, duración del alquiler, política de lluvia e instalación del castillo inflable.",
+  alternates: { canonical: "/preguntas-frecuentes" },
 };
 
 export default function PreguntasFrecuentesPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
-
   return (
     <main className="flex-1">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqJsonLd()} />
       <PageHeroBand title="Preguntas frecuentes" subtitle="Todo lo que necesitás saber antes de reservar tu juego." />
       <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
         <div className="mb-10 text-center sm:mb-12">

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Términos y condiciones",
   description: "Condiciones de uso del sitio web de Diversión Oeste.",
+  alternates: { canonical: "/terminos-y-condiciones" },
 };
 
 export default function TerminosYCondicionesPage() {

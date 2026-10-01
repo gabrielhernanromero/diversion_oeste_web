@@ -4,9 +4,10 @@ import { ComboBuilder } from "@/components/combo/combo-builder";
 import { games } from "@/lib/games";
 
 export const metadata: Metadata = {
-  title: "Armá tu combo",
+  title: "Armá tu combo de juegos con hasta 30% off",
   description:
     "Elegí los juegos que quieras para tu fiesta o evento y mirá el precio final con descuento al instante, sin esperar respuesta.",
+  alternates: { canonical: "/armar-combo" },
 };
 
 export default function ArmarComboPage() {

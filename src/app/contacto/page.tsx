@@ -5,7 +5,9 @@ import { CoverageSection } from "@/components/coverage/coverage-section";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description: "Contanos tu evento y te respondemos con disponibilidad y precio por WhatsApp.",
+  description:
+    "Pedí presupuesto para alquilar juegos en tu fiesta o evento en Zona Oeste, CABA o GBA. Contanos la fecha y te respondemos con disponibilidad y precio por WhatsApp.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

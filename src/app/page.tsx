@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { games } from "@/lib/games";
@@ -6,6 +7,11 @@ import { WhatsAppCtaBand } from "@/components/cta/whatsapp-cta-band";
 import { GamesGrid } from "@/components/games/games-grid";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { CoverageSection } from "@/components/coverage/coverage-section";
+import { AboutSection } from "@/components/home/about-section";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -15,13 +21,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-yellow/75 via-primary/75 to-foreground/85" />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/15 to-transparent" />
         <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 text-center sm:px-6">
-          <span className="mb-4.5 inline-block rounded-full bg-brand-yellow px-4 py-1.5 text-sm font-bold text-foreground">
-            Zona Oeste · GBA
-          </span>
-          <h1 className="mb-4 font-heading text-4xl leading-[1.05] font-extrabold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-[56px]">
-            Momentos inolvidables
-            <br />
-            para toda la familia
+          {/* El H1 lleva la keyword principal en el badge y conserva el slogan como titular visual. */}
+          <h1 className="mb-4">
+            <span className="mb-4.5 inline-block rounded-full bg-brand-yellow px-4 py-1.5 text-sm font-bold text-foreground">
+              Alquiler de juegos · Zona Oeste
+            </span>
+            <span className="block font-heading text-4xl leading-[1.05] font-extrabold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-[56px]">
+              Momentos inolvidables
+              <br />
+              para toda la familia
+            </span>
           </h1>
           <p className="mx-auto mb-7 max-w-lg text-lg font-medium text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] sm:text-xl">
             Alquiler de juegos para cumpleaños, fiestas de 15, eventos de empresa y kermeses escolares. Consultá
@@ -74,6 +83,8 @@ export default function Home() {
         </div>
         <GamesGrid games={games} variant="preview" />
       </section>
+
+      <AboutSection />
 
       <HowItWorks />
 
