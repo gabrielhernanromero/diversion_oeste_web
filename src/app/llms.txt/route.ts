@@ -1,4 +1,4 @@
-import { games } from "@/lib/games";
+import { EVENT_TYPES, games } from "@/lib/games";
 import { faqs } from "@/lib/faqs";
 import { LOCALITIES } from "@/components/coverage/coverage-marquee";
 import { BUSINESS, SITE_URL } from "@/lib/seo";
@@ -30,13 +30,14 @@ export function GET() {
     "",
     ...games.map(
       (game) =>
-        `- [${game.name}](${SITE_URL}/juegos/${game.slug}): ${game.desc} Medidas: ${game.measurements}. Uso ${game.category.toLowerCase()}.`,
+        `- [${game.name}](${SITE_URL}/juegos/${game.slug}): ${game.desc} Medidas: ${game.measurements}. Uso ${game.category.toLowerCase()}. Ideal para: ${game.idealFor.map((e) => EVENT_TYPES[e].label.toLowerCase()).join(", ")}.`,
     ),
     "",
     "## Páginas",
     "",
     `- [Catálogo de juegos](${SITE_URL}/juegos)`,
     `- [Armá tu combo](${SITE_URL}/armar-combo): calculadora de precio con descuento por cantidad`,
+    `- [Qué juegos alquilar según tu evento](${SITE_URL}/juegos-para-eventos): recomendaciones para cumpleaños, fiestas de 15, empresas, kermeses y reuniones familiares`,
     `- [Preguntas frecuentes](${SITE_URL}/preguntas-frecuentes)`,
     `- [Contacto](${SITE_URL}/contacto)`,
     "",

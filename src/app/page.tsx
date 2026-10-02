@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       <section className="relative flex min-h-[min(88vh,760px)] items-center overflow-hidden pt-28 sm:pt-32">
-        <Image src="/hero-fiesta.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src="/hero-fiesta.jpg" alt="" fill preload fetchPriority="high" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-yellow/75 via-primary/75 to-foreground/85" />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/15 to-transparent" />
         <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 text-center sm:px-6">
@@ -82,6 +82,11 @@ export default function Home() {
           </p>
         </div>
         <GamesGrid games={games} variant="preview" />
+        <p className="mt-8 text-center">
+          <Link href="/juegos-para-eventos" className="font-bold text-primary-deep hover:underline">
+            ¿No sabés cuál elegir? Mirá qué juegos van con tu evento →
+          </Link>
+        </p>
       </section>
 
       <AboutSection />

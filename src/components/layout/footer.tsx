@@ -6,6 +6,7 @@ const FOOTER_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/juegos", label: "Catálogo" },
   { href: "/armar-combo", label: "Armá tu combo" },
+  { href: "/juegos-para-eventos", label: "Juegos según tu evento" },
   { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
   { href: "/contacto", label: "Contacto" },
 ];
@@ -16,7 +17,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6">
         <div className="flex items-center justify-between gap-2.5">
           <div className="flex items-center gap-2.5">
-            <Image src="/logo-icon.svg" alt="Diversión Oeste" width={36} height={36} className="size-9" />
+            <Image src="/logo-icon.svg" alt="" width={36} height={36} className="size-9" />
             <span className="font-heading text-lg font-bold">
               <span className="text-secondary">Diversión</span> <span className="text-primary">Oeste</span>
             </span>
@@ -43,11 +44,11 @@ export function Footer() {
         </p>
         <div className="h-px bg-background/10" />
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-xs text-background/40">© 2026 Diversión Oeste. Todos los derechos reservados.</p>
-          <Link href="/politica-de-privacidad" className="text-xs text-background/40 hover:text-background/70">
+          <p className="text-xs text-background/65">© 2026 Diversión Oeste. Todos los derechos reservados.</p>
+          <Link href="/politica-de-privacidad" className="text-xs text-background/65 hover:text-background">
             Política de privacidad
           </Link>
-          <Link href="/terminos-y-condiciones" className="text-xs text-background/40 hover:text-background/70">
+          <Link href="/terminos-y-condiciones" className="text-xs text-background/65 hover:text-background">
             Términos y condiciones
           </Link>
         </div>

@@ -36,7 +36,7 @@ export function CookieConsent() {
       <p className="text-sm text-muted-foreground">
         Usamos cookies para analizar el uso del sitio (Google Analytics). Podés aceptar o rechazar.{" "}
         <a href="/politica-de-privacidad" className="underline">
-          Más información
+          Más información sobre privacidad
         </a>
         .
       </p>

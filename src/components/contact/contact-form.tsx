@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { ContactFormFields } from "./contact-form-fields";
 import { submitContactForm, type ContactFormState } from "./actions";
+import { trackEvent } from "@/lib/analytics";
 
 const initialState: ContactFormState = { success: false };
 
@@ -25,6 +26,7 @@ export function ContactForm() {
     setState(result);
 
     if (result.success && result.whatsappLink) {
+      trackEvent("generate_lead", { method: "contact_page" });
       if (whatsappTab) {
         whatsappTab.location.href = result.whatsappLink;
       } else {

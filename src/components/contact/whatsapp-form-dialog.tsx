@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { ContactFormFields } from "./contact-form-fields";
-import { submitContactForm, type ContactFormState } from "./actions";
+import { lazy, Suspense, useRef, useState, type ReactNode } from "react";
+import { Slot } from "radix-ui";
+import { trackEvent } from "@/lib/analytics";
 
-const initialState: ContactFormState = { success: false };
+// El popup (Radix Dialog + formulario) pesa bastante y la mayoría de las visitas nunca lo
+// abre: se descarga recién cuando el usuario apunta o toca un botón de WhatsApp, en vez de
+// sumarse al JavaScript inicial de cada página.
+const loadModal = () => import("./whatsapp-form-modal");
+const WhatsAppFormModal = lazy(() => loadModal().then((m) => ({ default: m.WhatsAppFormModal })));
 
 type WhatsAppFormDialogProps = {
   trigger: ReactNode;
@@ -16,57 +18,41 @@ type WhatsAppFormDialogProps = {
 
 export function WhatsAppFormDialog({ trigger, defaultGames, defaultMessage }: WhatsAppFormDialogProps) {
   const [open, setOpen] = useState(false);
-  const [state, setState] = useState<ContactFormState>(initialState);
-  const [pending, setPending] = useState(false);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-
-    // Abrimos la pestaña ya, de forma sincrónica dentro del gesto de click, para que los
-    // bloqueadores de pop-ups no la corten cuando recién más tarde (tras el await) sepamos
-    // el link real de WhatsApp.
-    const whatsappTab = window.open("about:blank", "_blank");
-
-    setPending(true);
-    const result = await submitContactForm(initialState, new FormData(form));
-    setPending(false);
-    setState(result);
-
-    if (result.success && result.whatsappLink) {
-      if (whatsappTab) {
-        whatsappTab.location.href = result.whatsappLink;
-      } else {
-        window.location.href = result.whatsappLink;
-      }
-      setOpen(false);
-    } else {
-      whatsappTab?.close();
-    }
-  }
+  const [mounted, setMounted] = useState(false);
+  const triggerRef = useRef<HTMLElement>(null);
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={(next) => {
-        setOpen(next);
-        if (!next) setState(initialState);
-      }}
-    >
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-md">
-        <DialogTitle className="font-heading text-xl font-bold">Contanos tu evento</DialogTitle>
-        <DialogDescription>
-          Completá tus datos y te llevamos a WhatsApp con la consulta ya armada.
-        </DialogDescription>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 pt-1">
-          <ContactFormFields defaultGames={defaultGames} defaultMessage={defaultMessage} idPrefix="modal" />
-          {state.error && <p className="text-sm text-destructive">{state.error}</p>}
-          <Button type="submit" disabled={pending} className="h-auto rounded-2xl py-3.5 text-base font-bold">
-            {pending ? "Enviando…" : "Continuar a WhatsApp"}
-          </Button>
-        </form>
-      </DialogContent>
-    </Dialog>
+    <>
+      <Slot.Root
+        ref={triggerRef}
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        onPointerEnter={loadModal}
+        onFocus={loadModal}
+        onTouchStart={loadModal}
+        onClick={() => {
+          setMounted(true);
+          setOpen(true);
+          trackEvent("whatsapp_form_open", { games: defaultGames?.join(", ") });
+        }}
+      >
+        {trigger}
+      </Slot.Root>
+      {mounted && (
+        <Suspense fallback={null}>
+          <WhatsAppFormModal
+            open={open}
+            onOpenChange={setOpen}
+            // Sin DialogTrigger, Radix no sabe a dónde devolver el foco al cerrar.
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              triggerRef.current?.focus();
+            }}
+            defaultGames={defaultGames}
+            defaultMessage={defaultMessage}
+          />
+        </Suspense>
+      )}
+    </>
   );
 }

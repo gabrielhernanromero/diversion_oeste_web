@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Ruler } from "lucide-react";
-import { games, getGameBySlug } from "@/lib/games";
+import { Check, Ruler } from "lucide-react";
+import { EVENT_TYPES, games, getGameBySlug } from "@/lib/games";
+import { getFaqsForGame } from "@/lib/faqs";
 import { GameThumb } from "@/components/games/game-thumb";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
 import { JsonLd } from "@/components/seo/json-ld";
+import { FaqAccordion } from "@/components/faq/faq-accordion";
+import { GamesGrid } from "@/components/games/games-grid";
 import { gameJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -42,6 +45,18 @@ export default async function GameDetailPage({
   const game = getGameBySlug(slug);
   if (!game) notFound();
 
+  const idealFor = game.idealFor.map((event) => EVENT_TYPES[event].label);
+  const gameFaqs = getFaqsForGame(game.slug);
+  const otherGames = games.filter((g) => g.slug !== game.slug).slice(0, 3);
+  const included = [
+    "Entrega, armado y retiro con vehículo propio",
+    "6 horas de alquiler, con opción de sumar horas",
+    "Reserva con seña del 50%, el resto el día del evento",
+    game.category === "Exterior"
+      ? "Si llueve, se reprograma o se cambia por un juego de interior"
+      : "Juego de interior: no depende del clima",
+  ];
+
   return (
     <main className="flex-1 px-4 pt-28 pb-20 sm:px-6 sm:pt-32">
       <JsonLd data={gameJsonLd(game)} />
@@ -59,7 +74,7 @@ export default async function GameDetailPage({
               image={game.image}
               index={games.findIndex((g) => g.slug === game.slug)}
               sizes="(min-width: 640px) 512px, 90vw"
-              priority
+              preload
             />
           </div>
           <div>
@@ -87,7 +102,57 @@ export default async function GameDetailPage({
             </p>
           </div>
         </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <section aria-labelledby="ideal-heading" className="rounded-3xl border border-foreground/[0.06] bg-card p-6">
+            <h2 id="ideal-heading" className="mb-3 font-heading text-xl font-bold">
+              Ideal para
+            </h2>
+            <ul className="flex flex-wrap gap-2">
+              {idealFor.map((label) => (
+                <li key={label} className="rounded-full bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary-deep">
+                  {label}
+                </li>
+              ))}
+            </ul>
+            <Link href="/juegos-para-eventos" className="mt-4 inline-block text-sm font-bold text-primary-deep hover:underline">
+              Ver qué juegos elegir según tu evento →
+            </Link>
+          </section>
+          <section aria-labelledby="included-heading" className="rounded-3xl border border-foreground/[0.06] bg-card p-6">
+            <h2 id="included-heading" className="mb-3 font-heading text-xl font-bold">
+              Qué incluye el alquiler
+            </h2>
+            <ul className="grid gap-2 text-sm text-muted-foreground">
+              {included.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <Check className="mt-0.5 size-4 shrink-0 text-secondary-deep" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
+        <section aria-labelledby="faq-heading" className="mt-12">
+          <h2 id="faq-heading" className="mb-5 font-heading text-2xl font-extrabold">
+            Preguntas sobre el alquiler de {game.name}
+          </h2>
+          <FaqAccordion faqs={gameFaqs} group={`faq-${game.slug}`} />
+        </section>
       </div>
+
+      <section aria-labelledby="related-heading" className="mx-auto mt-16 max-w-6xl">
+        <h2 id="related-heading" className="mb-6 text-center font-heading text-2xl font-extrabold sm:text-3xl">
+          Combinalo con otros juegos
+        </h2>
+        <GamesGrid games={otherGames} variant="preview" />
+        <p className="mt-6 text-center">
+          <Link href="/armar-combo" className="font-bold text-primary-deep hover:underline">
+            Armá tu combo y ahorrá hasta 30% →
+          </Link>
+        </p>
+      </section>
     </main>
   );
 }

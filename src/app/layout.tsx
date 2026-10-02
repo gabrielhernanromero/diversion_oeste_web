@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloatButton } from "@/components/layout/whatsapp-float-button";
 import { GoogleAnalytics } from "@/components/layout/google-analytics";
 import { CookieConsent } from "@/components/layout/cookie-consent";
-import { Toaster } from "@/components/ui/sonner";
 import { JsonLd } from "@/components/seo/json-ld";
 import { BUSINESS, SITE_URL, organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -92,7 +91,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <WhatsAppFloatButton />
         <CookieConsent />
         <GoogleAnalytics />
-        <Toaster />
       </body>
     </html>
   );

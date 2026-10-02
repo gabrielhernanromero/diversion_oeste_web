@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { games } from "@/lib/games";
 import { SITE_URL } from "@/lib/seo";
 
-const STATIC_ROUTES = ["", "/juegos", "/armar-combo", "/preguntas-frecuentes", "/contacto"];
+const STATIC_ROUTES = ["", "/juegos", "/armar-combo", "/juegos-para-eventos", "/preguntas-frecuentes", "/contacto"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((path) => ({

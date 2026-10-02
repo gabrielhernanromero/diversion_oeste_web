@@ -3,11 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
-import { MobileMenu } from "./mobile-menu";
+
+// El menú mobile es un Dialog de Radix: se descarga recién al tocar la hamburguesa.
+const loadMobileMenu = () => import("./mobile-menu");
+const MobileMenu = lazy(() => loadMobileMenu().then((m) => ({ default: m.MobileMenu })));
 
 const NAV_LINKS = [
   { href: "/", label: "Inicio" },
@@ -21,6 +24,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -54,9 +58,9 @@ export function Navbar() {
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-2xl border border-foreground/[0.06] bg-background/75 px-4 py-2.5 shadow-lg shadow-foreground/10 backdrop-blur-md sm:px-6">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/logo-icon.svg" alt="Diversión Oeste" width={40} height={40} className="size-9 sm:size-10" priority />
+            <Image src="/logo-icon.svg" alt="" width={40} height={40} className="size-9 sm:size-10" priority />
             <span className="whitespace-nowrap font-heading text-base font-bold sm:text-lg">
-              <span className="text-secondary">Diversión</span> <span className="text-primary">Oeste</span>
+              <span className="text-secondary-deep">Diversión</span> <span className="text-primary-deep">Oeste</span>
             </span>
           </Link>
 
@@ -78,7 +82,13 @@ export function Navbar() {
 
           <button
             type="button"
-            onClick={() => setMenuOpen(true)}
+            onPointerEnter={loadMobileMenu}
+            onTouchStart={loadMobileMenu}
+            onFocus={loadMobileMenu}
+            onClick={() => {
+              setMenuMounted(true);
+              setMenuOpen(true);
+            }}
             aria-label="Abrir menú"
             className="flex size-10 items-center justify-center rounded-xl bg-foreground text-background transition-transform hover:scale-105 active:scale-95 md:hidden"
           >
@@ -87,7 +97,11 @@ export function Navbar() {
         </div>
       </header>
 
-      <MobileMenu open={menuOpen} onOpenChange={setMenuOpen} links={NAV_LINKS} isActive={isActive} />
+      {menuMounted && (
+        <Suspense fallback={null}>
+          <MobileMenu open={menuOpen} onOpenChange={setMenuOpen} links={NAV_LINKS} isActive={isActive} />
+        </Suspense>
+      )}
     </>
   );
 }

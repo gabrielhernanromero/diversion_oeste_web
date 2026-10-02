@@ -14,7 +14,7 @@ type GameThumbProps = {
   index?: number;
   className?: string;
   sizes?: string;
-  priority?: boolean;
+  preload?: boolean;
 };
 
 export function GameThumb({
@@ -23,7 +23,7 @@ export function GameThumb({
   index = 0,
   className,
   sizes = "(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw",
-  priority,
+  preload,
 }: GameThumbProps) {
   if (image) {
     // Fondo blanco (igual que la card) + object-contain: las fotos de producto ya
@@ -37,7 +37,8 @@ export function GameThumb({
           alt={name}
           fill
           sizes={sizes}
-          priority={priority}
+          preload={preload}
+          fetchPriority={preload ? "high" : undefined}
           className="object-contain drop-shadow-[0_10px_18px_rgba(27,42,65,0.15)]"
         />
       </div>
