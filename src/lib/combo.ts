@@ -13,6 +13,13 @@ export function getDescuentoPorCantidad(cantidad: number): number {
 }
 
 export function calcularPrecioFinal(precioLista: number, descuento: number): number {
-  // Redondeado al múltiplo de 5 más cercano para que el precio se vea prolijo.
-  return Math.round((precioLista * (1 - descuento / 100)) / 5) * 5;
+  // Redondeado al múltiplo de $5.000 más cercano para que el precio se vea prolijo.
+  return Math.round((precioLista * (1 - descuento / 100)) / 5000) * 5000;
+}
+
+// Formatea con punto de miles (80000 → "80.000"). Sin Intl para que servidor y navegador den lo mismo.
+export function formatPrecio(precio: number): string {
+  return Math.round(precio)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }

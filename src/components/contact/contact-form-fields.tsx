@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { games } from "@/lib/games";
-import { getDescuentoPorCantidad, calcularPrecioFinal } from "@/lib/combo";
+import { getDescuentoPorCantidad, calcularPrecioFinal, formatPrecio } from "@/lib/combo";
 
 type ContactFormFieldsProps = {
   defaultGames?: string[];
@@ -71,8 +71,8 @@ export function ContactFormFields({ defaultGames = [], defaultMessage, idPrefix 
               )}
             </div>
             <div className="mt-1 flex items-baseline gap-2">
-              {descuento > 0 && <span className="text-sm text-background/50 line-through">${precioLista}</span>}
-              <span className="font-heading text-2xl font-extrabold text-primary">${precioFinal}</span>
+              {descuento > 0 && <span className="text-sm text-background/50 line-through">${formatPrecio(precioLista)}</span>}
+              <span className="font-heading text-2xl font-extrabold text-primary">${formatPrecio(precioFinal)}</span>
               <span className="text-xs font-medium text-background/60">/ 6 hs</span>
             </div>
           </div>

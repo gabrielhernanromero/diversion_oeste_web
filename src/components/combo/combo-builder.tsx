@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Game } from "@/lib/games";
-import { getDescuentoPorCantidad, calcularPrecioFinal } from "@/lib/combo";
+import { getDescuentoPorCantidad, calcularPrecioFinal, formatPrecio } from "@/lib/combo";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
 
 type ComboBuilderProps = {
@@ -27,7 +27,7 @@ export function ComboBuilder({ games }: ComboBuilderProps) {
 
   const comboMessage =
     cantidad > 0
-      ? `Combo armado: ${selectedGames.map((game) => game.name).join(" + ")} — Precio: $${precioFinal}${
+      ? `Combo armado: ${selectedGames.map((game) => game.name).join(" + ")} — Precio: $${formatPrecio(precioFinal)}${
           descuento > 0 ? ` (con ${descuento}% de descuento)` : ""
         }.`
       : undefined;
@@ -67,7 +67,7 @@ export function ComboBuilder({ games }: ComboBuilderProps) {
                 <div className={cn("flex flex-col gap-0.5 px-3.5 py-3", active ? "bg-secondary text-secondary-foreground" : "bg-muted text-foreground")}>
                   <span className="font-heading text-base font-bold">{game.name}</span>
                   <span className={cn("text-sm font-semibold", active ? "text-secondary-foreground" : "text-muted-foreground")}>
-                    ${game.precio} <span className="text-xs font-normal opacity-75">/ 6 hs</span>
+                    ${formatPrecio(game.precio)} <span className="text-xs font-normal opacity-75">/ 6 hs</span>
                   </span>
                 </div>
               </button>
@@ -92,9 +92,9 @@ export function ComboBuilder({ games }: ComboBuilderProps) {
               )}
             </div>
             <div>
-              {descuento > 0 && <p className="text-sm text-background/50 line-through">${precioLista}</p>}
+              {descuento > 0 && <p className="text-sm text-background/50 line-through">${formatPrecio(precioLista)}</p>}
               <p className="font-heading text-4xl font-extrabold text-primary">
-                ${precioFinal} <span className="text-base font-semibold text-background/60">/ 6 hs</span>
+                ${formatPrecio(precioFinal)} <span className="text-base font-semibold text-background/60">/ 6 hs</span>
               </p>
             </div>
             <WhatsAppCtaButton

@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { FaqAccordion } from "@/components/faq/faq-accordion";
 import { GamesGrid } from "@/components/games/games-grid";
 import { gameJsonLd } from "@/lib/seo";
+import { formatPrecio } from "@/lib/combo";
 
 export const dynamicParams = false;
 
@@ -92,7 +93,7 @@ export default async function GameDetailPage({
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <span className="rounded-full bg-brand-yellow px-4.5 py-2 text-sm font-bold text-foreground">
-                ${game.precio} / 6 hs
+                ${formatPrecio(game.precio)} / 6 hs
               </span>
               <WhatsAppCtaButton defaultGames={[game.name]}>Consultar disponibilidad</WhatsAppCtaButton>
             </div>

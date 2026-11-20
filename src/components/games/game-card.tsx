@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { GameThumb } from "./game-thumb";
 import { WhatsAppCtaButton } from "@/components/whatsapp/whatsapp-cta-button";
 import type { Game } from "@/lib/games";
+import { formatPrecio } from "@/lib/combo";
 
 type GameCardProps = {
   game: Game;
@@ -33,7 +34,7 @@ export function GameCard({ game, index, variant = "preview" }: GameCardProps) {
           )}
         </div>
         <p className="font-heading text-xl font-extrabold text-primary-deep">
-          ${game.precio} <span className="text-xs font-semibold text-muted-foreground">/ 6 hs</span>
+          ${formatPrecio(game.precio)} <span className="text-xs font-semibold text-muted-foreground">/ 6 hs</span>
         </p>
         <p className="flex-1 text-sm text-muted-foreground">{game.desc}</p>
 
